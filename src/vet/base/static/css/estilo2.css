@@ -1,0 +1,15 @@
+#contenedor2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+#producto {
+            float: left;
+            width: 30%;
+            margin-left: 1%;
+            display: block;
+        }
+#textoprod {
+            width: 65%; /* Redujimos un poco el ancho para dar espacio entre la imagen y el texto */
+            margin-left: 1%;

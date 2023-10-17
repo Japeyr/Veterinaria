@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+		<title> Inicio </title>
+	</head>
+	<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle">Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br>
+	</nav>
+	<br>
+	<h1 class="display-1" align="center" style="color: blue">TIENDA</h1>
+		<div id="contenedor2">
+			<div id="producto">
+        		<div class="container">
+        		<div class="row">
+            		<div class="col-12 align-self-center">
+						<H4 style="color: blue"><B>  NATURE BRASCORP !!!</B></H4>
+					</div>
+        		</div>
+        		<div class="row">
+            		<div class="col-8">
+                		<div class="row" style="padding: 10px 0;">
+                    		<div class="col-12">
+                        		<div class="row">
+                            		{% for producto in productos %}
+									{% if producto.nombre == 'NATURE BRASCORP' %}
+                            		<div class="col-6">
+                                		<div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                    		<div class="card-body">
+												<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                        		<h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                        		<p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                        		<p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                        		{% if request.user.is_authenticated %}
+                                                <a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                {% endif %}
+                                    		</div>
+                                		</div>
+                            		</div>
+									{% endif %}
+                            		{% endfor %}
+                        		</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="textoprod" style="color: blue">
+        	<H3>NATURE PERROS CACHORROS SMALL MEDIUM</H3>
+
+        	<H3>NATURE</H3><H4>Nature es un alimento extruído super premium de tipo seco, especialmente formulado para perros, elaborada con ingredientes naturales que los diferencian y lo destacan de otras líineas en el mercado.</h4>
+        	<H3>PORQUE DARLE NATURE A TU MASCOTA</H3><H4>Porque Nature posee antioxidantes naturales (que mejoran la inmunidad y el estado general), mezclas sinérgicas de tocoferoles, ácido cítrico y extrato de romero, que preservan las grasas, aceites, vitaminas y aromas suceptibles a la oxidación, haciendo que el alimento conserve todas sus propiedades nutricionales de manera óptima.</H4>
+
+        	<H3>CUIDADO DE SU PERRO</H3><H4>Cuidado con su perro:</H4><H4>* No deje alimento húmedo dentro del comedero</H4><H4>* Mantenga siempre agua limpia y fresca a disposición</H4><H4>* Lleve periódicamente su perro al médico veterinario</H4><H4>* Si cambia de alimento, hágalo de manera gradual</H4>
+
+        	<H3>Ingredientes</H3><H4>Arroz, harina de carne, carne de pollo, gluten meal, maíz precocido, aceite de pollo, hidrolizado enzimático, antioxidantes naturales (mezcla de tocoferoles, ácido cítrico y extracto de romero), leche descremada, soja extrusada, plasma bovino, trigo, inulina, núcleo vitamínico y mineral, cloruro de sodio, cloruro de colina, propionato de calcio, ácido fosfórico, edulcorante.</H4>
+
+        	<H3>DIGESTIBILIDAD</H3><H4>Proteina de origen animal: bovino y pollo. Digestibilidad de Proteína: 90-92%.</H4><H3>Disponibilidad del producto y presentaciones</H3><H4>Bolsa de 15,0 kilogramos</H4>
+		</div>
+	</div>
+	<br>
+   </body>
+</html>

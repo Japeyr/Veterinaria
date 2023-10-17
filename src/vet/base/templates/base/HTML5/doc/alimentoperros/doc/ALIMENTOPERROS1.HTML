@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+		<title> Inicio </title>
+	</head>
+	<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br/>
+	<br/>
+	</nav>
+	<br>
+	<br>
+	<h1 class="display-1" align="center" style="color: blue">TIENDA</h1>
+    	<div id="contenedor2">
+        	<div id="producto">
+				<div class="container">
+        		<div class="row">
+            		<div class="col-12 align-self-center">
+						<H4 style="color: blue"><B>Eukanuba Puppy Large Breed !!!</B></H4>
+					</div>
+        		</div>
+        		<div class="row">
+            		<div class="col-8">
+                		<div class="row" style="padding: 10px 0;">
+                    		<div class="col-12">
+                        		<div class="row">
+                            		{% for producto in productos %}
+									{% if producto.nombre == 'EUKANUBA PUPPY LARGE BREED' %}
+                            		<div class="col-6">
+                                		<div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                    		<div class="card-body">
+												<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                        		<h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                        		<p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                        		<p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                        		{% if request.user.is_authenticated %}
+                                                <a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                {% endif %}
+                                    		</div>
+                                		</div>
+                            		</div>
+									{% endif %}
+                            		{% endfor %}
+                        		</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="textoprod" style="color: blue">
+    		<H3> Recomendado para Cachorros de razas con pesos adultos de más de 50 libras, desde el destete hasta los 12 o 24 meses de vida; no se recomienda para perras preñadas o en períiodo de lactancia.</H3>
+
+    		<H3>Información de productos</H3><BR><h4> Empujón para el crecimiento.</h4><H4>Contribuir al crecimiento adecuado de los cachorros de raza grande y gigante implica muchos desafíos. En sus primeros uno o dos años de vida su cachorro crecerá tanto como usted en sus primeros 14 años.</h4><H4>Mediante la nutrición, Eukanuba Puppy Large Breed Fórmula está formulado para contribuir al desarrollo equilibrado de los músculos y del esqueleto de los perros de raza grande, ayudando a su cachorro a alcanzar su máximo potencial.</h4>
+
+    		<H3>Calcio y fósforo.</H3><H4>Su cachorro de raza grande necesita niveles de calcio y fósforo especialmente ajustados para facilitar el desarrollo adecuado del esqueleto. La densidad y la fuerza ósea son de fundamental importancia para soportar la gran masa muscular de los cachorros de raza grande a medida que crecen. Eukanuba Puppy Large Breed Fórmula tiene niveles de nutrientes vitales calibrados con precisión para satisfacer estas necesidades importantes.</H4>
+
+    		<H3>Contribuir al equilibrio</H3><H4>Controlar el crecimiento de los cachorros de raza grande y gigante también es fundamental para un desarrollo adecuado. Uno de los beneficios únicos de Eukanuba Puppy Large Breed Fórmula es que constituye un equilibrio perfecto de ingredientes que facilitan el control del crecimiento. El pollo natural es el ingrediente principal para lograr un gran sabor. Las proteínas, las grasas, los carbohidratos y las calorías están perfectamente balanceados para proporcionar a su cachorro de raza grande la energía y nutrición necesarias para un crecimiento controlado y adecuado.</H4><H3>Calorías</H3><H4>Moderado: 4.138 kcal/kg, 362 kcal/taza</H4>
+
+    		<H3>Ingredientes</H3><H4>Pollo, harina de subproductos de pollo, harina de maíz, trigo entero molido, cebada entera en granos molida, sorgo entero en granos molido, harina de pescado (fuente de aceite de pescado), grasa de pollo (conservada con tocoferoles mixtos, fuente de vitamina E y ácido cítrico), pulpa de remolacha deshidratada (una vez retirado el azúcar), hidrolizado de pollo, producto de huevo deshidratado, levadura de cerveza deshidratada, sal,cloruro de potasio, carbonato de calcio, harina de linaza, cloruro de colina, extracto de caléndula (fuente de luteína),sulfato ferroso, glucosamina, suplemento de vitamina E, betacaroteno, óxido de zinc, ácido ascórbico, sulfato de manganeso,sulfato de cobre, óxido de manganeso, sulfato de condroitina, acetato de vitamina A, pantotenato de calcio, biotina, extracto de romero, suplemento de vitamina B12, mononitrato de tiamina (fuente de vitamina B1), niacina, suplemento de riboflavina (fuente de vitamina B2), inositol, clorhidrato de piridoxina (fuente de vitamina B6), suplemento de vitamina D3,ioduro de potasio, ácido fólico, carbonato de cobalto</H4>
+
+    		<H3>Distribución calórica</H3><H4> Proteínas: 25%. Grasas: 36%. Carbohidratos: 39%.</H4><H3>Disponibilidad del producto y presentaciones</H3><H4>Bolsa de 1,0 kilogramos</H4><H4>Bolsa de 1,8 kilogramos</H4><H4>Bolsa de 3,0 kilogramos</H4><H4>Bolsa de 7,5 kilogramos</H4><H4>Bolsa de 15,0 kilogramos</H4><H4>Bolsa de 18,1 kilogramos</H4><H4>Bolsa de 450 gramos</H4>
+		</div>
+    </div>
+	<br>
+</body>
+</html>

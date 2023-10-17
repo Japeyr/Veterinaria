@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+<link rel="stylesheet" type='text/css' href="{% static 'css/estilo1.css' %}"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<title>Perros y Gatos - Tienda de Mascotas - Accsesorios </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle">Inicio</button>
+			<div class="dropdown-content">
+				<a href="{% url 'index' %}">Nosotros</a>
+				<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+				<a href="Consejos.html">Consejos</a>
+			</div>
+		</div>
+				<div class="dropdown">
+			<button class="dropdown-toggle">Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle">Login</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/login/doc/login.html">Ingresar</a>
+				<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<h3 align="center" style="color: blue"><B>COMO ELEGIR A SU PERRO - Consejo Nº 2 !!!</B></h3>
+	<br>
+	<div id="contenedor" style="color: blue">
+	<div id="imagen">
+    <h3>Sepa que perro elegir</H3><img src="{% static 'img/Perro3.jpg' %}" WIDTH="200">
+	</div>
+	<div id="texto">
+    <h3 align="center">EFECTOS ESPECIALES</H3>
+	<H4 align="justify">Mientras que a bastantes razas hay que descargarles el pelo a mano, usando los dedos y/o un cuchillo para ello, con el fin de darle al manto el efecto deseado para las exposiciones, a las mismas razas a menudo se les corta el pelo en su lugar cuando se tienen solamente como animales de compañia. Las razas de manto suave como el Terrier de Staffordshire americano, Coonhound, Terrier de Boston y Bulldog francés sólo necesitan ser cepillados a diario o cada dos días usando un cepillo de cerda corta. El Pastor alemán y muchos de los Spaniels, Retrievers necesitan un cepillado diario con uno de cerda y un peine. Las razas que necesitan un especial cuidado del manto y visitas regulares al salón de belleza para recortar, vaciar y, quizás, cortar, incluyen el Terrier de Airedale, Bichón Frisé, los Schnauzers y los Caniches, y volvemos a insistir en que si tenemos en cuenta el tiempo y los gastos, sería un buen consejo pensar en una raza de manto corto y suave.</h4>
+
+    <h3 align="center">CUIDADOS VETERINARIOS</H3>
+	<H4>Debe acordarse de preguntarle al criador sobre el programa de lombrices, y comprobar si se le ha vacunado para enfermedades mortales como el moquillo y el parvo virus Sino, tendrá que llegar a un acuerdo con su veterinario para ponerle las inyecciones necesarias y establecer la rutina para las repeticiones anuales a partir de entónces.</H4>
+
+    <h3 align="center">ALIMENTACIÓN</H3>
+	<H4 align="justify">Hay que tener en consideración el elemento económico cuando hablamos de mantener un perro. Las razas más glandes cuestan bastante más de mantener, en comida, que las pequeñas una raza Toy comerá aproximadamente un 30% menos que un Gran Danés. Así mismo, también tendremos que considerar que el perro que sea un trabajador regular consumirá más que el compañero que lleve una vida indolente. Los estándares establecidos por las sociedades caninas indican, en muchos casos, el peso deseado para cada raza. Si está preocupado porque su perro supera o no alcanza este peso ideal, debería consultar con su veterinario, que puede recomendarle una dieta especial.</H4>
+
+    <h3 align="center">CUIDANDO A UN NUEVO CACHORRO</h3>
+	<H4 align="justify">Cuando recoja su cachorro del criador, normalmente le dará un papel con la dieta, que usted debería observar durante los primeros meses de vida de este. Puede que desee seguir alimentándolo con los productos recomendados, pero sería una tontería hacer caso omiso de las recomendaciones del especialista hasta que esté bien crecido. Es normal que un cachorro necesite cuatro ligeras comidas al día (cinco en el caso de algunas de las razas más grandes), que se reducirán a dos comidas diarias a los seis meses de edad, y a una cuando alcance el año, para entonces ya debería ser un adulto. No obstante, muchos propietarios, especialmente en el caso de las razas toy, prefieren seguir dándole a su perro dos comidas al día, dividiendo la porción diaria en dos partes.</H4>
+	</div>
+	</div>
+	<a href="Consejo7.html">Siguiente</a>
+<br>
+<br>
+</body>
+</html>

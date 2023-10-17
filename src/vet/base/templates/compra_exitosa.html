@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<meta charset="UTF-8">
+	<meta charset="UTF-8">
+<title>Perros y Gatos - Tienda de Mascotas - Formulario </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	{% else %}
+	<a href="doc/login/doc/login.html">Ingresar</a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br/>
+	<br/>
+	</nav>
+<br>
+
+    <h1 style="color: blue"> Se ha efectuado su pago</h1>
+    <h1 style="color: blue">El producto se enviará a la dirección suministrada</h1>
+    <h1 style="color: blue">Gracias por su compra!</h1>
+     <a href="{% url 'factura' %}" id="download-link" onclick="redirectToIndex()">Descargar factura</a>
+	<script>
+    	function redirectToIndex() {
+        	console.log("Redirigiendo a index.html después de la descarga del PDF");
+
+        	// Redirige a index.html después de 1 segundo (1000 milisegundos)
+        	setTimeout(function() {
+            	window.location.href = "{% url 'index' %}";
+        	}, 3000);
+    	}
+	</script>
+
+</body>
+</html>

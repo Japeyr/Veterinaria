@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+		<title> Inicio </title>
+	</head>
+	<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+	</nav>
+	<br>
+	<h1 class="display-1" align="center" style="color: blue">TIENDA</h1>
+		<div id="contenedor2">
+        	<div id="producto">
+    			<div class="container">
+        			<div class="row">
+            			<div class="col-12 align-self-center">
+							<H4 style="color: blue"><B>PURINA PRO PLAN !!!</B></H4>
+						</div>
+        			</div>
+        			<div class="row">
+            			<div class="col-8">
+                			<div class="row" style="padding: 10px 0;">
+                    			<div class="col-12">
+                        			<div class="row">
+                            			{% for producto in productos %}
+										{% if producto.nombre == 'PRO PLAN PUPPY CHICKEN AND RICE SMALL RICE' %}
+                            			<div class="col-6">
+                                			<div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                    			<div class="card-body">
+													<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                        			<h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                        			<p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                        			<p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                        			{% if request.user.is_authenticated %}
+                                                	<a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                	<a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                	{% endif %}
+                                    			</div>
+                                			</div>
+                            			</div>
+										{% endif %}
+                            			{% endfor %}
+                        			</div>
+                            	</div>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+        <div id="textoprod" style="color: blue">
+    		<H3>PRO PLAN PUPPY CHICKEN & RICE SMALL RICE</H3>
+
+    		<H3>La Mejor Protección para tu Cachorro</H3><BR><H4>Además de reforzar los sistemas naturales de protección de tu cachorro, el Nuevo PURINA PRO PLAN con OptiStart Plus está especialmente formulado para satisfacer sus necesidades metabólicas específicas basadas en el tamaño de su raza:</h4>
+
+    		<H3>Ración Diaria</H3><H4>Cada taza contiene aproximadamente 112 g de Pro Plan Puppy Fórmula (usando una taza de 250 ml). Las cantidades recomendadas son para un perro cachorro con un nivel de actividad normal. Recuerde que los requerimientos de ingesta varían según la edad del perro, actividad o el entorno del mismo, y deberán ajustarse según esas condiciones.</H4>
+
+    		<H3>Nutrición con tecnología de punta para una protección completa.</H3><H4>* Anticuerpos naturales del calostro y otras proteíinas de alta calidad que ayudan a extender la protección de la madre durante el primer año formativo del cachorro.</H4><H4>* Proporción óptima de proteína y grasa que promueve un crecimiento saludable al desarrollar músculos fuertes y magros sin excesos de grasa corporal.</H4><H4>* Ingredientes de calidad altamente digeribles como el pollo y el arroz aseguran una absorción de nutrientes óptima y heces pequeñas y firmes.</H4><H4>* Una relación balanceada de calcio y fósforo ayudan a desarrollar huesos y dientes fuertes en los cachorros en crecimiento.</H4><H4>* El DHA del aceite de pescado ayuda a mejorar el desarrollo del cerebro y la visión.</H4>
+
+    		<H3>Ingredientes</H3><H4>Pollo, Arroz de cervecería, Harina de subproductos avícolas, Gluten de maíz, Trigo molido, Maíz amarillo molido, Grasa de res preservada con tocoferoles mezclados (fuente de vitamina E), Salvado de maíz, Digesto animal (sabor natural de pollo), Productos del huevo, Levadura seca de cervecería, Sal, Aceite de pescado, Calostro vacuno (fuente natural de anticuerpos), Fosfato bicalcico, Citrato de potasio, Cloruro de colina, DL-Metionina, ácido ascórbico (fuente de vitamina C), Sulfato de zinc, Sulfato ferroso, Suplementos vitamínicos (A,D-3, E, B-12), Sulfato de manganeso, Niacina, Pantotenato de calcio, Suplemento de riboflavina, Sulfato de cobre, Biotina, Clorohidrato de piridoxina, Mononitrato de tiamina, ácido fólico, Complejo bisulfito menadiona sódico (fuente de actividad de vitamina K), Iodato de calcio, Selenito de sodio.</H4>
+
+    		<H3>ANÁLISIS GARANTIZADO</H3><H4>Proteína cruda (min.) 29,0%; Grasa cruda (min.) 18,0%; Fibra cruda (max.) 3,0%; Humedad (max.) 12,0%; ácido linoleico (min.) 1,6%; Minerales (max.) 7,5%; Calcio (min./max.) 1,0% / 1,4%; Fósforo (min./max.) 0,8% / 1,3%</H4>
+		</div>
+    </div>
+	<br>
+	</body>
+</html>

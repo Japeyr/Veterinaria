@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+		<title> Inicio </title>
+	</head>
+	<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc//login/doc/login.html">Ingresar</a>
+					<a href="../../../doc//login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br/>
+	</nav>
+	<br>
+	<h1 class="display-1" align="center" style="color: blue"><b>TIENDA</b></h1>
+	<H3 style="color: blue">Recomendado para Mantenimiento de adultos.</H3>
+		<div id="contenedor2">
+        	<div id="producto">
+				<div class="container">
+        			<div class="row">
+            			<div class="col-12 align-self-center">
+						<h3 align="center" style="color: blue"><b> EUKANUBA KITTEN CHICKEN & RICE FORMULA !!!</b></h3>
+					</div>
+        		</div>
+        		<div class="row">
+            		<div class="col-8">
+                		<div class="row" style="padding: 10px 0;">
+                    		<div class="col-12">
+                        		<div class="row">
+                            		{% for producto in productos %}
+									{% if producto.nombre == 'EUKANUBA KITTEN CHICKEN AND RICE FORMULA' %}
+                            		<div class="col-6">
+                                		<div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                    		<div class="card-body">
+												<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                        		<h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                        		<p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                        		<p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                        		{% if request.user.is_authenticated %}
+                                                <a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                {% endif %}
+                                    		</div>
+                                		</div>
+                            		</div>
+									{% endif %}
+                            		{% endfor %}
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="textoprod" style="color: blue">
+    		<H3>Información de productos</H3><H4>Eukanuba: The Ultimate in Taste and Nutritionó for Your Cat. Además de tener un gran sabor, Eukanuba Chicken & Rice Fórmula Cat Food, un producto de primera calidad, contiene niveles óptimos de proteínas de pollo y se ha formulado científicamente para seguir las recomendaciones de los veterinarios y nutricionistas.</h4>
+
+    		<H3>Calorías</H3><H4>Concentrado: 4.718 kcal/kg, 536 kcal/taza</H4>
+
+    		<H3>Eukanuba Chicken & Rice Formula Cat Food está:</H3><H4>* Elaborado con pollo.</H4><H4>* Balanceado naturalmente para ayudar a mantener un tracto urinario sano al reducir el pH de la orina y proporcionar bajo magnesio dietético.</H4><H4>* Elaborado con OmegaCOAT Nutritional Science., la proporción justa de ácidos grasos omega-6 y omega-3 que ayuda a mantener una piel saludable y estimular un pelo lustroso y abundante mediante la nutrición.</H4><H4>Elaborado con una fibra moderadamente fermentable para favorecer la salud intestinal. Eukanuba Chicken & Rice Fórmula Cat Food también contiene Eukanuba Dental Defense System, con efectividad clínicamente probada para reducir la acumulación de sarro hasta en un 45%. La tecnología de propiedad exclusiva utilizada en Eukanuba Dental Defense System ayuda a prevenir la acumulación de sarro durante y después de las comidas.</H4>
+
+    		<H3>Ingredientes</H3><H4>Pollo, hígado de pollo, harina de subproductos de pollo, arroz de cerveceros, subproductos de pollo, harina de pescado (fuente de aceite de pescado), sémola de maíz, grasa de pollo (conservada con tocoferoles mixtos, una fuente de vitamina E y ácido cítrico), pulpa de remolacha deshidratada (una vez retirado el azúcar), producto de huevo deshidratado, hidrolizado de pollo, carbonato de calcio, cloruro de potasio, levadura de cerveza deshidratada, DL-metionina, cloruro de colina, sal, suplemento de vitamina E, óxido de zinc, niacina, ácido ascórbico, sulfato de manganeso, acetato de vitamina A, pantotenato de calcio, biotina, extracto de romero, mononitrato de tiamina (fuente de vitamina B1), clorhidrato de piridoxina (fuente de vitamina B6), sulfato de cobre, suplemento de vitamina B12, suplemento de riboflavina (fuente de vitamina B2), suplemento de vitamina D3, inositol, ácido fólico, ioduro de potasio, carbonato de cobalto</H4>
+
+    		<H3>Distribución calórica</H3><H4> Proteínas: 30%. Grasas: 46%. Carbohidratos: 24%.</H4><H3>Disponibilidad del producto y presentaciones</H3><H4>Bolsa de 1,0 kilogramos</H4><H4>Bolsa de 3,0 kilogramos</H4><H4>Bolsa de 500 gramos</H4>
+		</div>
+    </div>
+	</body>
+</html>

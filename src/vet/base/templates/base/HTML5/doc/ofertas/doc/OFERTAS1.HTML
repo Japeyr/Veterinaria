@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<title> Inicio </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br/>
+	</nav>
+	<br>
+<h1 class="display-1" align="center" style="color: blue"><b>TIENDA</b></h1>
+    <div id="contenedor2">
+        <div id="producto">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 align-self-center">
+                        <H3 align="center" style="color: blue"><B> EUKANUBA ADULT LIGTH FORMULA !!!</B></H3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row" style="padding: 10px 0;">
+                            <div class="col-12">
+                                <div class="row">
+                                    {% for producto in productos %}
+                                    {% if producto.nombre == 'EUKANUBA ADULT LIGTH FORMULA' %}
+                                    <div class="col-6">
+                                        <div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                            <div class="card-body">
+                                                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                                <h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                                <p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                                <p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                                {% if request.user.is_authenticated %}
+                                                <a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="textoprod" style="color: blue">
+            <!-- Aquí colocas el texto que deseas mostrar después de la tarjeta -->
+            <h3>Recomendado para Perros excedidos de peso o con niveles más bajos de actividad.</h3>
+            <h3>Información de productos</h3>
+            <br>
+            <h3>Sacrifique grasas, no sabor</h3>
+            <h4>Eukanuba Adult Light Fórmula está elaborado con menos grasas y menos calorías sin sacrificar la nutrición. Eukanuba Adult Light Fórmula proporciona los niveles adecuados de proteínas, grasas y carbohidratos para ayudar a mantener la masa muscular ayudando a perder peso o mantenerlo en un nivel adecuado.</h4>
+            <h4>Además, esta fórmula, como todos los alimentos para perros Eukanuba, proporciona los niveles adecuados de fibra para un sistema digestivo saludable y un menor volumen de deposiciones.</h4>
+            <h4>Eukanuba Adult Light Fórmula está elaborado con pollo natural como ingrediente principal y a su perro le encantará el sabor, aunque no ingerir tantas grasas.</h4>
+            <h3>Debería alimentar a su perro con Adult Light Formula?</h3>
+            <h4>Si el nivel de actividad de su perro se reduce a una caminata diaria o menos, o si su perro ha sido esterilizado o castrado, se recomienda alimentarlo con Eukanuba Adult Light Fórmula. Adult Light Fórmula está especialmente formulado para perros cuyo peso supera el nivel recomendado para la raza específica o para los perros con un nivel de actividad menor.</h4>
+            <h3>Análisis garantizado</h3>
+            <h4>Los estudios de alimentación animal realizados usando los procedimientos de la AAFCO confirman que Eukanuba Adult Light Fórmula ofrece una nutrición completa y balanceada para el mantenimiento.</h4>
+            <p>
+            <h3>Calorías</h3>
+            <h4>Moderado: 3.875 kcal/kg, 275 kcal/taza</h4>
+            <h3>Ingredientes</h3>
+            <h4>Harina de maíz, pollo, harina de subproductos de pollo, sorgo entero en granos molido, harina de pescado (fuente de aceite de pescado), cebada entera en granos molida, arroz de cerveceros, pulpa de remolacha deshidratada (una vez retirado el azúcar), hidrolizado de pollo, producto de huevo deshidratado, levadura de cerveza deshidratada, grasa de pollo (conservada con tocoferoles mixtos, una fuente de vitamina E y ácido cítrico), cloruro de potasio, carbonato de calcio, sal, hexametafosfato de sodio, harina de linaza, DL-metionina, cloruro de colina, sulfato ferroso, fosfato dicálcico, suplemento de vitamina E, óxido de zinc, betacaroteno, acetato de vitamina A, ácido ascórbico, sulfato de manganeso, sulfato de cobre, óxido de manganeso, L-carnitina, pantotenato de calcio, biotina, extracto de romero, mononitrato de tiamina (fuente de vitamina B1), suplemento de vitamina B12, niacina, suplemento de riboflavina (fuente de vitamina B2), inositol, clorhidrato de piridoxina (fuente de vitamina B6), yoduro de potasio, suplemento de vitamina D3, carbonato de cobalto, ácido fólico</h4>
+            <h3>Distribución calórica</h3>
+            <h4>Proteínas: 20%. Grasas: 23%. Carbohidratos: 57%.</h4>
+            <h3>Disponibilidad del producto y presentaciones</h3>
+            <h4>Bolsa de 1,0 kilogramos</h4>
+            <h4>Bolsa de 1,8 kilogramos</h4>
+            <h4>Bolsa de 3,0 kilogramos</h4>
+            <h4>Bolsa de 7,5 kilogramos</h4>
+            <h4>Bolsa de 15,0 kilogramos</h4>
+        </div>
+    </div>
+	<br>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/estilo2.css' %}"/>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+		<title> Inicio </title>
+	</head>
+	<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../../../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br>
+	</nav>
+	<br>
+	<h1 class="display-1" align="center" style="color: blue">TIENDA</h1>
+    	<div id="contenedor2">
+        		<div id="producto">
+    				<div class="container">
+        				<div class="row">
+            				<div class="col-12 align-self-center">
+							<H4 style="color: blue"><B>ROYAL CANIN !!!</B></H4>
+						</div>
+        			</div>
+        			<div class="row">
+            			<div class="col-8">
+                			<div class="row" style="padding: 10px 0;">
+                    			<div class="col-12">
+                        			<div class="row">
+                            			{% for producto in productos %}
+										{% if producto.nombre == 'ROYAL CANIN MEDIUM JUNIOR' %}
+                            			<div class="col-6">
+                                			<div class="card" style="cdheight: 10rem; width: 23rem; margin: 5px 0px;">
+                                    			<div class="card-body">
+													<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" width="200" height="250">
+                                        			<h5 class="card-title" style="color: blue">{{producto.nombre}}</h5>
+                                        			<p class="card-text" style="color: blue">{{producto.producto}}</p>
+                                        			<p class="card-text" style="color: blue">Precio ${{producto.precio}}</p>
+                                        			{% if request.user.is_authenticated %}
+                                                	<a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                                	<a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-primary">Eliminar del carrito</a>
+                                                	{% endif %}
+                                    			</div>
+                                			</div>
+                            			</div>
+										{% endif %}
+                            			{% endfor %}
+                        			</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+			<div id="textoprod" style="color: blue">
+
+    		<H3>ROYAL CANIN MEDIUM JUNIOR</H3>
+
+    		<H3>Cachorros de razas medianas (entre 11 y 25 Kg. peso adulto), desde los 2 meses hasta los 12 meses de edad.</H3><H4>Satisface los requerimientos de un rápido crecimiento proveyendo una comida con alto contenido de energía (4276 kcal/kg) y rico en proteínas (32%)</h4><H4>Tiene en cuenta la pobre capacidad digestiva del cachorro Médium mediante un alto nivel proteico, y un reducido contenido de almidón (25%), fructo-oligosacáridos y pulpa de remolacha para nutrir la flora intestinal.</h4><H4>Garantiza un sólido desarrollo del esqueleto y dientes sanos mediante contenidos apropiados de calcio y fósforo.</h4>
+
+    		<H3>PARA TU MASCOTA</H3><H4>Conocer lo básico sobre la nutrición de tu perro es la base para ayudarte a elejir el alimento más adecuado. Por eso, Royal Canin maneja una gran variedad de productos para ofrecer a tu mascota una buena salud y permitirle la máxima longevidad en las mejores condiciones</H4>
+
+    		<H3>CONSEJOS NUTRICIONALES</H3><H4>Durante su crecimiento, los cachorros de razas de tamaño medio multiplican entre 40 y 60 veces el peso que tenían al nacer. Es también el momento en el que el sistema digestivo es más sensible. Medium Junior, de alta digestibilidad, contiene fructo-oligosacáridos (fibras) que mantienen el equilibrio de la flora intestinal. Presenta una tasa reducida de almidón para una perfecta seguridad digestiva. Contiene todos los nutrientes necesarios para un crecimiento armónico.</H4>
+
+    		<H3>Ingredientes</H3><H4>Harina de subproductos de pollo, arroz, maíz, grasas animales, gluten de maíz, pulpa de remolacha, hidrolizado de hígado, vitaminas, sales minerales, aceite vegetal, levadura de cerveza, zeolita, proteína vegetal purificada, aceite de pescado, fructo-oligosacáridos (FOS), manano-oligo-sacáridos (MOS), huevo en polvo, DL-metionina, oligoelementos quelados, taurina, extracto de rosa de la India (rico en luteína).</H4>
+
+    		<H3>MODO DE EMPLEO</H3><H4>Listo para servir. Respetar la ración diaria recomendada, repartir dicha ración en 2 ó 3 tomas diarias. Dejar siempre agua fresca a disposición del cachorro.</H4><H3>Disponibilidad del producto y presentaciones</H3><H4>Bolsa de 1,0 kilogramos</H4><H4>Bolsa de 3,0 kilogramos</H4><H4>Bolsa de 15,0 kilogramos</H4>
+			</div>
+    	</div>
+	<br>
+</body>
+</html>

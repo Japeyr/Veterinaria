@@ -1,0 +1,17 @@
+#contenedor {
+  display: flex;
+  justify-content: space-between; /* Esto separará los elementos a los lados */
+  align-items: center; /* Esto alinea verticalmente los elementos */
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+}
+#imagen {
+float: left;
+width: 15%;
+margin-left: 1%;
+display: block;
+height: 150px;
+}
+#texto {
+  width: 85%; /* Reduje el ancho para dejar espacio entre los elementos */
+  margin-right: 1%; /* En lugar de margin-left para evitar problemas de espacio */
+}

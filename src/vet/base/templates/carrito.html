@@ -1,0 +1,48 @@
+<div class="alert alert-primary" role="alert">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="row" colspan="7" class="text-center" style="color: blue">CARRITO</th>
+    </tr>
+    <tr>
+      <th scope="col" style="color: blue">PRODUCTO</th>
+      <th scope="col" style="color: blue">NOMBRE</th>
+      <th scope="col" style="color: blue">UNIDADES</th>
+      <th scope="col" style="color: blue" >PRECIO</th>
+      <th scope="col" style="color: blue">TOTAL</th>
+      <th style="color: blue">Sumar 1</th>
+      <th style="color: blue">Restar 1</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if request.session.carrito.items %}
+  {% for key, value in request.session.carrito.items %}
+    <tr>
+      <td><img src="{{ value.imagen }}" width="25" height="41"></td>
+      <td style="color: blue">{{value.nombre}}</td>
+      <td style="color: blue">{{value.cantidad}}</td>
+      <td style="color: blue">{{value.precio}}</td>
+      <td style="color: blue">{{value.acumulado}}</td>
+      <td><a href="{% url 'agregar_producto' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a></td>
+      <td><a href="{% url 'restar_producto' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a></td>
+    </tr>
+  {% endfor %}
+  {% else %}
+  <tr>
+      <td colspan="3">
+          <div class="alert alert-danger text-center" style="color: blue"> Sin Productos </div>
+      </td>
+  </tr>
+  {% endif %}
+    <tr>
+      <th scope="row" style="color: blue">Total:</th>
+      <td colspan="2" style="color: blue">$ {{total_carrito}}</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+</div>
+<div class="row text-center">
+    <div class="col-6"><a href="{% url 'limpiar_carrito' %}" class="btn btn-danger">Limpiar</a></div>
+    <div class="col-6"><a href="{% url 'pago' %}" class="btn btn-success">Comprar</a></div>
+</div>

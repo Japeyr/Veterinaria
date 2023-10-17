@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo1.css' %}"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<title>Perros y Gatos - Tienda de Mascotas - Accsesorios </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle">Inicio</button>
+			<div class="dropdown-content">
+				<a href="{% url 'index' %}">Nosotros</a>
+				<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+				<a href="Consejos.html">Consejos</a>
+			</div>
+		</div>
+				<div class="dropdown">
+			<button class="dropdown-toggle">Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle">Login</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/login/doc/login.html">Ingresar</a>
+				<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+			</div>
+		</div>
+	</nav>
+	<br>
+    <H3 align="center" style="color: blue"><B> COMO CUIDAR A SU GATO - Consejo Nª 3 !!!</B></H3>
+	<br>
+	<div id="contenedor" style="color: blue">
+	<div id="imagen">
+    <H3>EL PELO DEL GATO</H3><img src="{% static 'img/gato4.gif' %}" WIDTH="200">
+	</div>
+	<div id="texto">
+    <H3 align="center">10 CONSEJOS ESENCIALES PARA LA HORA DEL CEPILLADO</H3>
+
+    <H4 align="justify">1) Acostumbrarle a la rutina del cepillado y del baño desde los primeros meses de vida.</H4>
+
+    <H4 align="justify">2) Fijar una hora del día para el aseo: mejor en los momentos en que se encuentra más relajado; por ejemplo, después de comer.</H4>
+
+    <H4 align="justify">3) A medida que se hace viejo, aumentar la frecuencia del cepillado, pues con la edad irá descuidando su higiene personal.</H4>
+
+    <H4 align="justify">4) Aprovechar el cepillado para comprobar si hay Indicios de la presencia de parásitos (costras, excrementos, etc...).</H4>
+
+    <H4 align="justify">5) No descuidar el pelo próximo a los ojos, sobre todo en gatos de pelo largo y de color claro; mucha atención también a las razas con tendencia al lagrimeo como el Persa. Para ello, usar una gasa humedecida con agua y retirar las impurezas de esta zona; secar igualmente con una gasa.</H4>
+
+    <H4 align="justify">6) Con los pelos próximos a las orejas y zona bucal habrá que proceder de la misma forma. En el caso de recibir un alimento húmedo, extremar aún más las precauciones, pues si quedaran restos de comida alojados en los pelos próximos a la boca, pronto se convertirá en foco de bacterias y problemas dermatológicos.</H4>
+
+    <H4 align="justify">7) Las caricias también forman parte del ritual del aseo: con ellas arrastramos el pelo muerto y ayudamos a mantener la suavidad del manto.</H4>
+
+    <H4 align="justify">8) Recompensar su buen comportamiento durante el cepillado con juegos o una golosina.</H4>
+
+    <H4 align="justify">9) Procurarle una alimentación equilibrada con todos los nutrientes importantes, proteínas de calidad (no olvides que el pelo acaépara una buena proporción de este nutriente) y ácidos grasos esenciales.</H4>
+
+    <H4 align="justify">10) No existe necesidad alguna de cortar el pelo de un gato silo mantenemos limpio y bien cepillado. Sin embargo, tampoco supone un delito efectuarle un corte anual, en verano, para favorecer un pelo fuerte y sano y, sobre todo, ayudarle a superar las altas temperaturas.</H4>
+	</div>
+	</div>
+	<a href="Consejo4.html">Siguiente</a>
+<br>
+<br>
+</body>
+</html>

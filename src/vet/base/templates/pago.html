@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+		<meta charset="UTF-8">
+	<meta charset="UTF-8">
+<title>Perros y Gatos - Tienda de Mascotas - Formulario </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle" >Inicio</button>
+				<div class="dropdown-content">
+					<a href="{% url 'index' %}">Nosotros</a>
+					<a href="../doc/Info/doc/info.html">Información Útil</a>
+					<a href="../doc/Consejos/doc/Consejos.html">Consejos</a>
+				</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Tienda</button>
+			<div class="dropdown-content">
+				<a href="../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle" >Login</button>
+				<div class="dropdown-content">
+					<a href="../../../doc/login/doc/login.html">Ingresar</a>
+					<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+				</div>
+		</div>
+
+	<br/>
+	<br/>
+	</nav>
+<br>
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+<main style="text-align: center;">
+    <section class="formulario-compra" style="color: blue; display: inline-block; text-align: left;">
+        <h1 align="center">Formulario de Compra</h1>
+        <form method="post" action="{% url 'pago' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="metodo_pago">Método de Pago:</label>
+                <input type="text" id="metodo_pago" name="metodo_pago" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion_envio">Dirección de Envío:</label>
+                <textarea id="direccion_envio" name="direccion_envio" required></textarea>
+            </div>
+
+            <!-- Mostrar los productos seleccionados en la tabla de compras -->
+            <div class="alert alert-primary" role="alert">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="row" colspan="4" class="text-center" style="color: blue">Tu compra</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" style="color: blue">PRODUCTO</th>
+                            <th scope="col" style="color: blue">NOMBRE</th>
+                            <th scope="col" style="color: blue">PRECIO</th>
+                            <th scope="col" style="color: blue">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in request.session.carrito.items %}
+                        <tr>
+                            <td><img src="{{ value.imagen }}" width="25" height="41"></td>
+                            <td style="color: blue">{{value.nombre}}</td>
+                            <input type="hidden" name="nombre" value="{{ value.nombre }}">
+                            <td style="color: blue">{{value.precio}}</td>
+                            <input type="hidden" name="precio" value="{{ value.precio }}">
+                            <td style="color: blue">{{value.acumulado}}</td><!-- Puedes ajustar esto si es necesario -->
+                            <input type="hidden" name="acumulado" value="{{ value.acumulado }}">
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <th scope="row" style="color: blue">Total:</th>
+                            <td colspan="2" style="color: blue">$ {{ total_carrito }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+			<div class="row text-center">
+            <div class="col-6"><a href="{% url 'limpiar_carrito' %}" class="btn btn-danger">Limpiar</a></div>
+			{% if total_carrito > 0 %}
+            <div class="col-6"><button type="submit" class="btn btn-success" {% if total_carrito == 0 %}disabled{% endif %}>Comprar</button></div>
+			{% endif %}
+			</div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

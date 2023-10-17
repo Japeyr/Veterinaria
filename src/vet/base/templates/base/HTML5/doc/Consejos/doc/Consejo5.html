@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" type='text/css' href="{% static 'css/estilo.css' %}"/>
+	<link rel="stylesheet" type='text/css' href="{% static 'css/estilo1.css' %}"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<title>Perros y Gatos - Tienda de Mascotas - Accsesorios </title>
+</head>
+<body>
+	<header>
+		<div class="encabezado">
+			<img src="{% static 'img/logo2.JPG' %}" width="1260" height="256">
+		</div>
+	</header>
+	<br>
+	<h1 align="center" style="color: blue">PERROS Y GATOS - TIENDA DE MASCOTAS</h1>
+	{% if request.user.is_authenticated %}
+	<p>{{request.user}}</p>
+	<a href="{% url 'cerrar_sesion' %}">Salir</a>
+	<a href="{% url 'perfil' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% else %}
+	<a href="../../../doc/login/doc/login.html" style="color: blue" >Ingresar</a>
+	<a href="{% url 'login' %}"><img src="{% static 'img/carrito-de-compras.png' %}" width="35" height="35" align="right"></a>
+	{% endif %}
+	<hr>
+	<nav>
+		<div class="dropdown" >
+			<button class="dropdown-toggle">Inicio</button>
+			<div class="dropdown-content">
+				<a href="{% url 'index' %}">Nosotros</a>
+				<a href="../../../doc/Info/doc/info.html">Información Útil</a>
+				<a href="Consejos.html">Consejos</a>
+			</div>
+		</div>
+				<div class="dropdown">
+			<button class="dropdown-toggle">Tienda</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/ofertas/doc/ofertas.html">Ofertas</a>
+				<a href="../../../doc/alimentoperros/doc/ALIMENTOPERROS.HTML">Alimento para Perros</a>
+				<a href="../../../doc/alimentogatos/doc/ALIMENTOGATOS.HTML">Alimento para Gatos</a>
+				<a href="../../../doc/bocaditos/doc/BOCADITOS.HTML">Bocaditos</a>
+				<a href="../../../doc/accesorios/doc/ACCESORIOS.HTML">Accesorios</a>
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<a href="../../../doc/formulario/doc/formulario.html"><button class="dropdown-toggle">Contacto</button></a>
+		</div>
+
+		<div class="dropdown">
+			<button class="dropdown-toggle">Login</button>
+			<div class="dropdown-content">
+				<a href="../../../doc/login/doc/login.html">Ingresar</a>
+				<a href="../../../doc/login/doc/registro.html">Registrarse</a>
+			</div>
+		</div>
+	</nav>
+	<br>
+	 <H3 align="center" style="color: blue"><B> COMO ELEGIR A SU PERRO - Consejo Nº 1 !!!</B></H3>
+	<br>
+	<div id="contenedor" style="color: blue">
+	<div id="imagen" align="left">
+    <H3>Sepa que perro elegir</H3><img src="{% static 'img/Perro2.jpg' %}" WIDTH="200">
+	</div>
+	<div id="texto">
+    <H3 align="center">COMO ELEGIR NUESTRO PERRO</H3>
+	<H4 align="justify">Cada raza de perro tiene, por supuesto, una característica diferente. Algunos son más apropiados para el campo y la caza; otros son leales guardianes pero amantes de climas invernales; están los que son felices solo con un almohadoncito junto a la cama de sus dueños; y los que necesitan correr varios kilómetros diarios para no perder la forma.</h4>
+	<H4 align="justify">Generalmente, a la hora de adoptar un perro lo hacemos por su aspecto físico como si de un amor a primera vista se tratase, pero es muy aconsejable conocer de antemano cuáles son las costumbres y preferencias de cada raza, para no llevarnos luego sorpresas poco gratas ( Por nuestro bien y el de nuestras mascotas !)</h4>
+
+    <H3 align="center">ANTES QUE NADA</H3>
+	<H4 align="justify">Es importante que la decisión de comprar un perro, así como la elecciÓn de la raza, tenga la aprobación de todos. Es importante que un miembro de la casa, que puede estar encerrado en una oficina todos los días, no salga corriendo y compre un perro enorme de caza, que espera que cuide otra persona, cuando ésta ha estado deseando secretamente cuidar un Pequinés. Segundo: nunca compre un perro por su cara bonita. Siempre tiene que comprobar si sus habilidades, carácter y requisitos son adecuados para el papel que usted le quiere asignar y para sus circunstancias. Por ejemplo, puede que usted viva en un apartamento o en una casa, en una ciudad o en el campo, y la elección de la raza debería tener todo esto en cuenta. En el caso de un ejemplar de raza grande, poderoso y/o que necesite una gran cantidad de ejercicio, debe asegurarse de que usted o su compañero/a tienen la fuerza física para controlarlo. Ya se habrá dado cuenta de que el estudio de los grupos caninos ayuda al comprador de un perro a elegir las razas que entran dentro de la categoría más adecuada. Al menos, debería encontrar animales de varias razas entre las que hacer su elección. No debería ser difícil encontrar unas cuantas que, por ejemplo, combinen su papel de perro deportivo y/o guardián con aquel de perro de compañia para la familia, que podría, si usted quiere tener una perrera en el exterior, teniendo en cuenta que la mayoría de los animales de compañía comparten la casa con sus dueños, pero que a muchos perros grandes, de manto grueso no les pasa nada por estar en el exterior. No obstante, una vez que lo ha tenido acogido en el interior durante un cierto tiempo, sería poco amable cambiar de opinión y sacarlo a sufrir los rigores de la perrera.</H4>
+
+    <H3 align="center">UNA SABIA DECISIÓN</H3>
+	<H4 align="justify">Hablando con los criadores, seguramente le dirán que su tipo de perro es el más adecuado para usted. De la misma manera, una persona le dirá que nunca tendría, por ejemplo, un Pastor alemán en la misma casa que un niño, mientras que otra le confesaría que confiaría la vida del niño a ese perro. Es importante tener en cuenta que, al igual que otros perros de trabajo como el Doberman y el Rottweiler, el Pastor alemán es un guardián natural. Los incidentes que han salido en los medios ocasionados por ellos se han podido producir porque estas razas de guardianes, que están por naturaleza alerta, malinterpretaron una situación y saltaron (tal como ellos lo vieron) en defensa de los que estaban a su cargo. En otras palabras, hicieron el trabajo para el que los criaron. El estudio de los perfiles de las razas confirmará que, porque un perro sea grande o pequeño, no implica necesariamente más o menos ejercicio en proporción, o espacio vital. El Greyhound, por ejemplo, está acostumbrado durante su vida de carreras a ocupar un espacio pequeño lejos de la pista, y descansará contento en su rincón cuando está en una situación doméstica.</H4>
+
+    <H3 align="center">CUIDADOS</H3>
+	<H4 align="justify">La mayoría de la gente tiene preferencias por un animal de pelo corto o largo, e incluso algunas veces por un color en particular. Recuerde, no obstante, que un animal de pelo largo seguramente necesitará que pase mucho más tiempo acicalándolo que uno de pelo corto, y que a un perro de color claro, por ejemplo el Dálmata, se le caerá el pelo y se verá mucho en la alfombra del cuarto de estar. Cuáles son los requisitos de cada raza? La mayoría de los aficionados sólo son expertos en preparar a su raza elegida, y quizás a una o dos más. Sólo los profesionales en belleza y cuidados caninos pueden, por ejemplo, aconsejamos sobre el bario, cortes de pelo y cepillado de todas las razas reconocidas por el American Kennel Club.</H4>
+	</div>
+	</div>
+	<a href="Consejo6.html">Siguiente</a>
+<br>
+<br>
+</body>
+</html>

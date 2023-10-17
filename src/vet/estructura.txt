@@ -1,0 +1,310 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 9C9D-C7DB
+C:.
+¦   db.sqlite3
+¦   estructura.txt
+¦   manage.py
+¦   
++---base
+¦   ¦   admin.py
+¦   ¦   apps.py
+¦   ¦   Carrito.py
+¦   ¦   context_processors.py
+¦   ¦   forms.py
+¦   ¦   models.py
+¦   ¦   tests.py
+¦   ¦   urls.py
+¦   ¦   views.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---migrations
+¦   ¦   ¦   0001_initial.py
+¦   ¦   ¦   0002_producto.py
+¦   ¦   ¦   0003_producto_imagen.py
+¦   ¦   ¦   0004_alter_producto_imagen.py
+¦   ¦   ¦   0005_alter_producto_imagen.py
+¦   ¦   ¦   0006_alter_producto_nombre.py
+¦   ¦   ¦   0007_registro.py
+¦   ¦   ¦   0008_delete_registro.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           0001_initial.cpython-311.pyc
+¦   ¦           0002_alter_contacto_telefono.cpython-311.pyc
+¦   ¦           0002_producto.cpython-311.pyc
+¦   ¦           0003_producto_imagen.cpython-311.pyc
+¦   ¦           0004_alter_producto_imagen.cpython-311.pyc
+¦   ¦           0005_alter_producto_imagen.cpython-311.pyc
+¦   ¦           0006_alter_producto_nombre.cpython-311.pyc
+¦   ¦           0007_registro.cpython-311.pyc
+¦   ¦           0008_delete_registro.cpython-311.pyc
+¦   ¦           __init__.cpython-311.pyc
+¦   ¦           
+¦   +---static
+¦   ¦   +---css
+¦   ¦   ¦       estilo.css
+¦   ¦   ¦       
+¦   ¦   +---images
+¦   ¦   ¦       ACCESORIO1.jpg
+¦   ¦   ¦       ACCESORIO2.jpg
+¦   ¦   ¦       ACCESORIO3.jpg
+¦   ¦   ¦       ACCESORIO4.jpg
+¦   ¦   ¦       cat-eukanuba1.gif
+¦   ¦   ¦       cat-proplan1.gif
+¦   ¦   ¦       dog-brascorp1.gif
+¦   ¦   ¦       dog-eukanuba1.gif
+¦   ¦   ¦       dog-eukanuba2.gif
+¦   ¦   ¦       dog-proplan1.gif
+¦   ¦   ¦       dog-proplan2.gif
+¦   ¦   ¦       dog-proplan3.gif
+¦   ¦   ¦       dog-royalcanin1.gif
+¦   ¦   ¦       galletas-01.gif
+¦   ¦   ¦       galletas-02.gif
+¦   ¦   ¦       galletas-03.gif
+¦   ¦   ¦       galletas-04.gif
+¦   ¦   ¦       
+¦   ¦   +---img
+¦   ¦   ¦       ACCESORIO1.jpg
+¦   ¦   ¦       ACCESORIO2.jpg
+¦   ¦   ¦       ACCESORIO3.jpg
+¦   ¦   ¦       ACCESORIO4.jpg
+¦   ¦   ¦       cat-brascorp1.gif
+¦   ¦   ¦       cat-eukanuba1.gif
+¦   ¦   ¦       cat-eukanuba2.gif
+¦   ¦   ¦       cat-proplan1.gif
+¦   ¦   ¦       cat-proplan2.gif
+¦   ¦   ¦       cat-royalcanin1.gif
+¦   ¦   ¦       dog-brascorp1.gif
+¦   ¦   ¦       dog-eukanuba1.gif
+¦   ¦   ¦       dog-eukanuba2.gif
+¦   ¦   ¦       dog-proplan1.gif
+¦   ¦   ¦       dog-proplan2.gif
+¦   ¦   ¦       dog-royalcanin1.gif
+¦   ¦   ¦       galletas-01.gif
+¦   ¦   ¦       galletas-02.gif
+¦   ¦   ¦       galletas-03.gif
+¦   ¦   ¦       galletas-04.gif
+¦   ¦   ¦       gato1.jpg
+¦   ¦   ¦       gato2.jpg
+¦   ¦   ¦       gato3.jpg
+¦   ¦   ¦       gato4.gif
+¦   ¦   ¦       gato5.gif
+¦   ¦   ¦       info1.jpg
+¦   ¦   ¦       info2.jpg
+¦   ¦   ¦       info3.gif
+¦   ¦   ¦       info4.jpg
+¦   ¦   ¦       logo2.JPG
+¦   ¦   ¦       PATA1.png
+¦   ¦   ¦       PATA2.png
+¦   ¦   ¦       Perro1.jpg
+¦   ¦   ¦       Perro2.jpg
+¦   ¦   ¦       Perro3.jpg
+¦   ¦   ¦       perro4.gif
+¦   ¦   ¦       perro5.gif
+¦   ¦   ¦       perro6.gif
+¦   ¦   ¦       Thumbs.db
+¦   ¦   ¦       
+¦   ¦   +---js
+¦   +---templates
+¦   ¦   ¦   carrito.html
+¦   ¦   ¦   perfil.html
+¦   ¦   ¦   tienda.html
+¦   ¦   ¦   
+¦   ¦   +---base
+¦   ¦       +---HTML5
+¦   ¦           ¦   index.html
+¦   ¦           ¦   
+¦   ¦           +---doc
+¦   ¦           ¦   ¦   html5django.zip
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---accesorios
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       ACCESORIO1.HTML
+¦   ¦           ¦   ¦   ¦       ACCESORIO2.html
+¦   ¦           ¦   ¦   ¦       ACCESORIO3.HTML
+¦   ¦           ¦   ¦   ¦       ACCESORIO4.html
+¦   ¦           ¦   ¦   ¦       ACCESORIOS.HTML
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           ACCESORIO1.jpg
+¦   ¦           ¦   ¦           ACCESORIO2.jpg
+¦   ¦           ¦   ¦           ACCESORIO3.jpg
+¦   ¦           ¦   ¦           ACCESORIO4.jpg
+¦   ¦           ¦   ¦           perro6.gif
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---alimentogatos
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       ALIMENTOGATOS.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOGATOS1.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOGATOS2.html
+¦   ¦           ¦   ¦   ¦       ALIMENTOGATOS3.html
+¦   ¦           ¦   ¦   ¦       ALIMENTOGATOS4.html
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           cat-brascorp1.gif
+¦   ¦           ¦   ¦           cat-eukanuba2.gif
+¦   ¦           ¦   ¦           cat-proplan2.gif
+¦   ¦           ¦   ¦           cat-royalcanin1.gif
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---alimentoperros
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       ALIMENTOPERROS.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOPERROS1.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOPERROS2.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOPERROS3.HTML
+¦   ¦           ¦   ¦   ¦       ALIMENTOPERROS4.HTML
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           dog-brascorp1.gif
+¦   ¦           ¦   ¦           dog-eukanuba2.gif
+¦   ¦           ¦   ¦           dog-proplan3.gif
+¦   ¦           ¦   ¦           dog-royalcanin1.gif
+¦   ¦           ¦   ¦           Thumbs.db
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---bocaditos
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       BOCADITOS.HTML
+¦   ¦           ¦   ¦   ¦       BOCADITOS1.HTML
+¦   ¦           ¦   ¦   ¦       BOCADITOS2.HTML
+¦   ¦           ¦   ¦   ¦       BOCADITOS3.HTML
+¦   ¦           ¦   ¦   ¦       BOCADITOS4.HTML
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           galletas-01.gif
+¦   ¦           ¦   ¦           galletas-02.gif
+¦   ¦           ¦   ¦           galletas-03.gif
+¦   ¦           ¦   ¦           galletas-04.gif
+¦   ¦           ¦   ¦           Thumbs.db
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---Consejos
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       Consejo1.html
+¦   ¦           ¦   ¦   ¦       Consejo2.html
+¦   ¦           ¦   ¦   ¦       Consejo3.html
+¦   ¦           ¦   ¦   ¦       Consejo4.html
+¦   ¦           ¦   ¦   ¦       Consejo5.html
+¦   ¦           ¦   ¦   ¦       Consejo6.html
+¦   ¦           ¦   ¦   ¦       Consejo7.html
+¦   ¦           ¦   ¦   ¦       Consejo8.HTML
+¦   ¦           ¦   ¦   ¦       Consejos.html
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           gato1.jpg
+¦   ¦           ¦   ¦           gato2.jpg
+¦   ¦           ¦   ¦           gato3.jpg
+¦   ¦           ¦   ¦           gato4.gif
+¦   ¦           ¦   ¦           gato5.gif
+¦   ¦           ¦   ¦           Perro1.jpg
+¦   ¦           ¦   ¦           Perro2.jpg
+¦   ¦           ¦   ¦           Perro3.jpg
+¦   ¦           ¦   ¦           perro4.gif
+¦   ¦           ¦   ¦           perro5.gif
+¦   ¦           ¦   ¦           Thumbs.db
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---formulario
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦           formulario.html
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---Info
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦   ¦       info.html
+¦   ¦           ¦   ¦   ¦       info1.html
+¦   ¦           ¦   ¦   ¦       info2.html
+¦   ¦           ¦   ¦   ¦       info3.html
+¦   ¦           ¦   ¦   ¦       info4.html
+¦   ¦           ¦   ¦   ¦       
+¦   ¦           ¦   ¦   +---img
+¦   ¦           ¦   ¦           info1.jpg
+¦   ¦           ¦   ¦           info2.jpg
+¦   ¦           ¦   ¦           info3.gif
+¦   ¦           ¦   ¦           info4.jpg
+¦   ¦           ¦   ¦           Thumbs.db
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---login
+¦   ¦           ¦   ¦   +---doc
+¦   ¦           ¦   ¦           login.html
+¦   ¦           ¦   ¦           registro.html
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---ofertas
+¦   ¦           ¦       +---doc
+¦   ¦           ¦       ¦       ofertas.html
+¦   ¦           ¦       ¦       OFERTAS1.HTML
+¦   ¦           ¦       ¦       OFERTAS2.HTML
+¦   ¦           ¦       ¦       OFERTAS3.HTML
+¦   ¦           ¦       ¦       OFERTAS4.HTML
+¦   ¦           ¦       ¦       
+¦   ¦           ¦       +---img
+¦   ¦           ¦               cat-eukanuba1.gif
+¦   ¦           ¦               cat-proplan1.gif
+¦   ¦           ¦               dog-eukanuba1.gif
+¦   ¦           ¦               dog-proplan1.gif
+¦   ¦           ¦               Thumbs.db
+¦   ¦           ¦               
+¦   ¦           +---img
+¦   ¦                   logo2.JPG
+¦   ¦                   PATA1.png
+¦   ¦                   PATA2.png
+¦   ¦                   perro6.gif
+¦   ¦                   Thumbs.db
+¦   ¦                   
+¦   +---__pycache__
+¦           admin.cpython-311.pyc
+¦           apps.cpython-311.pyc
+¦           Carrito.cpython-311.pyc
+¦           context_processors.cpython-311.pyc
+¦           forms.cpython-311.pyc
+¦           models.cpython-311.pyc
+¦           urls.cpython-311.pyc
+¦           views.cpython-311.pyc
+¦           __init__.cpython-311.pyc
+¦           
++---media
+¦   +---images
+¦           ACCESORIO1.jpg
+¦           ACCESORIO2.jpg
+¦           ACCESORIO3.jpg
+¦           ACCESORIO4.jpg
+¦           cat-brascorp1.gif
+¦           cat-brascorp1_anP64cO.gif
+¦           cat-eukanuba1.gif
+¦           cat-eukanuba1_IT1ocq2.gif
+¦           cat-eukanuba2.gif
+¦           cat-eukanuba2_5N9sqwb.gif
+¦           cat-proplan1.gif
+¦           cat-proplan1_3gAMlPY.gif
+¦           cat-proplan2.gif
+¦           cat-proplan2_y7dmWxS.gif
+¦           cat-royalcanin1.gif
+¦           cat-royalcanin1_nhS5Eet.gif
+¦           dog-brascorp1.gif
+¦           dog-brascorp1_v14na7l.gif
+¦           dog-eukanuba1.gif
+¦           dog-eukanuba2.gif
+¦           dog-eukanuba2_7HzT7Fi.gif
+¦           dog-eukanuba2_NJm3Nka.gif
+¦           dog-eukanuba2_TbAlBSi.gif
+¦           dog-proplan1.gif
+¦           dog-proplan1_nxO3udz.gif
+¦           dog-proplan3.gif
+¦           dog-royalcanin1.gif
+¦           galletas-01.gif
+¦           galletas-02.gif
+¦           galletas-03.gif
+¦           galletas-04.gif
+¦           
++---vet
+¦   ¦   asgi.py
+¦   ¦   settings.py
+¦   ¦   urls.py
+¦   ¦   wsgi.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---__pycache__
+¦           settings.cpython-311.pyc
+¦           urls.cpython-311.pyc
+¦           wsgi.cpython-311.pyc
+¦           __init__.cpython-311.pyc
+¦           
++---__pycache__
+        Carrito.cpython-311.pyc
+        
