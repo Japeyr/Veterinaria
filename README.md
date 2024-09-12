@@ -17,5 +17,5 @@
 - Python
 - Django
 ### Funcionalidades ###
-- Página informativa sobre los servicios de la veterinaria.
+- Página informativa sobre los cuidados de las mascotas, etc.
 - Carrito de compras para productos veterinarios. 
