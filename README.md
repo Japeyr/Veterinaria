@@ -10,7 +10,6 @@
 2. HTML5 y CSS3: Con el tiempo, reacondicioné el proyecto utilizando HTML5 y CSS3, adoptando las mejores prácticas y estándares modernos de desarrollo web.
 3. Carrito de Compras con Django: Después de completar un curso de Python en el que aprendí Django, decidí integrar un carrito de compras para productos. Esta funcionalidad permite a los usuarios seleccionar y comprar productos directamente desde la página web.
 ### Tecnologías Utilizadas ###
-- HTML
 - CSS
 - HTML5
 - CSS3
